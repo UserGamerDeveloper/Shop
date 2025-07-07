@@ -1,0 +1,409 @@
+﻿@using MicroElectronic.Domain.Enum;
+@model MicroElectronic.Domain.ViewModels.Configurator.ConfiguratorViewModel
+@{
+    ViewData["Title"] = "Конфигуратор";
+    var CategoryIdProcessor = (int)CategoryId.Processor;
+    var CategoryIdMemory = (int)CategoryId.Memory;
+    var CategoryIdMotherboard = (int)CategoryId.Motherboard;
+    var CategoryIdPowerblock = (int)CategoryId.Powerblock;
+    var CategoryIdSSD = (int)CategoryId.SSD;
+    var CategoryIdVideocard = (int)CategoryId.Videocard;
+
+    int ProccessorSocket = -1;
+    int MotherboardSocket = -1;
+    int MotherboardMemory = -1;
+    int MemoryType = -1;
+    int PowerblockProcessorPin = -1;
+    int PowerblockVideocardPin = -1;
+    int MotherboardProcessorPin = -1;
+    int VideocardPin = -1;
+    if (Model.Proccessor != null)
+    {
+        MotherboardSocket = Model.Proccessor.One;
+    }
+    if (Model.Motherboard != null)
+    {
+        ProccessorSocket = Model.Motherboard.One;
+        MemoryType = Model.Motherboard.Two;
+        PowerblockProcessorPin = Model.Motherboard.Three;
+    }
+    if (Model.RAM != null)
+    {
+        MotherboardMemory = Model.RAM.One;
+    }
+    if (Model.Powerblock != null)
+    {
+        VideocardPin = Model.Powerblock.One;
+        MotherboardProcessorPin = Model.Powerblock.Two;
+    }
+    if (Model.Videocard != null)
+    {
+        PowerblockVideocardPin = Model.Videocard.One;
+    }
+    var s = "";
+    var pinP = "";
+    var pinV = "";
+    var allId = "";
+    var i = 0;
+    decimal allPower = 0;
+    decimal allPrice = 0;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/style-configurator.css" asp-append-version="true" />
+</head>
+  <main class="container-configurator">
+    <h1 class="name">
+        Конфигуратор сборки компьютера
+    </h1>
+
+    <div class="configurator-data">
+        <ul class="configurator-list">
+            
+            @if (Model.Proccessor != null)
+            {
+                {
+                    allId += $"&equipId[{i}]={Model.Proccessor.Id}";
+                    i++;
+                    allPower += Model.Proccessor.Power;
+                    allPrice += Model.Proccessor.Price;
+                }
+                <li class="configurator-item flex">
+                    <a class="configurator-item__button flex"
+                                        asp-controller="Items"
+                                        asp-action="Index"
+                                                asp-route-category="@CategoryIdProcessor"
+                                                asp-route-page="1"
+                                                asp-route-configurator="1"
+                                                    asp-route-socket="@ProccessorSocket"
+                                    >
+                            <img class="image-item" src="@Model.Proccessor.ImageUrl" alt="plus">
+                        <div class="decription">
+                                <h2 class="configurator-item__name"> @Model.Proccessor.Name</h2>
+                            <h3 class="description-item">
+                                @(s = $"{((Socket)Model.Proccessor.One)}, {Model.Proccessor.Power} Вт")
+                            </h3>
+                        </div>
+
+                    </a>
+
+                        <p class="price-item"> Цена: @Model.Proccessor.Price ₽</p>                
+                </li>
+
+            }
+            else
+            {
+                
+                    <li class="configurator-item flex">
+                                    <a class="configurator-item__button flex"
+                                    asp-controller="Items"
+                                    asp-action="Index"
+                                            asp-route-category="@CategoryIdProcessor"
+                                            asp-route-page="1"
+                                                asp-route-configurator="1"
+                                                        asp-route-socket="@ProccessorSocket"
+                                    >
+                                        <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                            <div class="decription">
+                                    <h2 class="configurator-item__name"> Процессор</h2>
+                            </div>
+
+                        </a>
+              
+                    </li>
+            }
+
+            @if (Model.Motherboard != null)
+            {
+                { 
+                    allId += $"&equipId[{i}]={Model.Motherboard.Id}";
+                    i++;
+                    allPrice += Model.Motherboard.Price;
+                }
+                    <li class="configurator-item flex">
+                                    <a class="configurator-item__button flex"
+                                            asp-controller="Items"
+                                            asp-action="Index"
+                                                        asp-route-category="@CategoryIdMotherboard"
+                                                    asp-route-page="1"
+                                                    asp-route-configurator="1"
+                                                            asp-route-socket="@MotherboardSocket"
+                                                                    asp-route-memory="@MotherboardMemory"
+                                                                                asp-route-processorPin="@MotherboardProcessorPin"
+                                        >
+                                    <img class="image-item" src="@Model.Motherboard.ImageUrl" alt="plus">
+                            <div class="decription">
+                                        <h2 class="configurator-item__name"> @Model.Motherboard.Name</h2>
+                                <h3 class="description-item">
+                                @(s = $"{((Socket)Model.Motherboard.One)}, {((TypeMemory)Model.Motherboard.Two)}, {Model.Motherboard.Three} Pin")
+                                </h3>
+                            </div>
+
+                        </a>
+
+                                <p class="price-item"> Цена: @Model.Motherboard.Price ₽</p>                
+                    </li>
+
+            }
+            else
+            {
+
+                        <li class="configurator-item flex">
+                                        <a class="configurator-item__button flex"
+                                                asp-controller="Items"
+                                                asp-action="Index"
+                                                            asp-route-category="@CategoryIdMotherboard"
+                                                        asp-route-page="1"
+                                                        asp-route-configurator="1"
+                                                                asp-route-socket="@MotherboardSocket"
+                                                                        asp-route-memory="@MotherboardMemory"
+                                                                                    asp-route-processorPin="@MotherboardProcessorPin"
+                                            >
+                                                <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                                <div class="decription">
+                                            <h2 class="configurator-item__name"> Motherboard</h2>
+                                </div>
+
+                            </a>
+
+                        </li>
+            }
+
+            @if (Model.Videocard != null)
+            {
+                { 
+                    allId += $"&equipId[{i}]={Model.Videocard.Id}";
+                    i++;
+                    allPower += Model.Videocard.Power;
+                    allPrice += Model.Videocard.Price;
+                }
+                    <li class="configurator-item flex">
+                        <a class="configurator-item__button flex"
+                                            asp-controller="Items"
+                                            asp-action="Index"
+                                                        asp-route-category="@CategoryIdVideocard"
+                                                    asp-route-page="1"
+                                                    asp-route-configurator="1"
+                                                                asp-route-videocardPin="@VideocardPin"
+                                        >
+                                    <img class="image-item" src="@Model.Videocard.ImageUrl" alt="plus">
+                            <div class="decription">
+                                        <h2 class="configurator-item__name"> @Model.Videocard.Name</h2>
+                                <h3 class="description-item">
+                                @if (Model.Videocard.One > 0)
+                                {
+                                    s = $"{Model.Videocard.One} Pin,";
+                                }
+                                else
+                                {
+                                    s = "";
+                                }
+                                @(s += $"{Model.Videocard.Power} Вт")
+                                </h3>
+                            </div>
+
+                        </a>
+
+                                <p class="price-item"> Цена: @Model.Videocard.Price ₽</p>                
+                    </li>
+
+            }
+            else
+            {
+
+                        <li class="configurator-item flex">
+                                        <a class="configurator-item__button flex"
+                                        asp-controller="Items"
+                                        asp-action="Index"
+                                                    asp-route-category="@CategoryIdVideocard"
+                                                asp-route-page="1"
+                                                    asp-route-configurator="1"
+                                                                    asp-route-videocardPin="@VideocardPin"
+                                        >
+                                            <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                                <div class="decription">
+                                            <h2 class="configurator-item__name"> Videocard</h2>
+                                </div>
+
+                            </a>
+
+                        </li>
+            }
+
+            @if (Model.RAM != null)
+            {
+                {
+                    allId += $"&equipId[{i}]={Model.RAM.Id}";
+                    i++;
+                    allPrice += Model.RAM.Price;
+                }
+                        <li class="configurator-item flex">
+                            <a class="configurator-item__button flex"
+                                                asp-controller="Items"
+                                                asp-action="Index"
+                                                                asp-route-category="@CategoryIdMemory"
+                                                        asp-route-page="1"
+                                                        asp-route-configurator="1"
+                                                                                asp-route-memory="@MemoryType"
+                                            >
+                                            <img class="image-item" src="@Model.RAM.ImageUrl" alt="plus">
+                                <div class="decription">
+                                                <h2 class="configurator-item__name"> @Model.RAM.Name</h2>
+                                    <h3 class="description-item">
+                                @(s = $"{((TypeMemory)Model.RAM.One)}")
+                                    </h3>
+                                </div>
+
+                            </a>
+
+                                        <p class="price-item"> Цена: @Model.RAM.Price ₽</p>                
+                        </li>
+
+            }
+            else
+            {
+
+                            <li class="configurator-item flex">
+                                            <a class="configurator-item__button flex"
+                                            asp-controller="Items"
+                                            asp-action="Index"
+                                                            asp-route-category="@CategoryIdMemory"
+                                                    asp-route-page="1"
+                                                        asp-route-configurator="1"
+                                                                                asp-route-memory="@MemoryType"
+                                            >
+                                                <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                                    <div class="decription">
+                                                    <h2 class="configurator-item__name"> RAM</h2>
+                                    </div>
+
+                                </a>
+
+                            </li>
+            }
+
+            @if (Model.SSD != null)
+            {
+                {
+                    allId += $"&equipId[{i}]={Model.SSD.Id}";
+                    i++;
+                    allPrice += Model.SSD.Price;
+                }
+                            <li class="configurator-item flex">
+                                <a class="configurator-item__button flex"
+                                                    asp-controller="Items"
+                                                    asp-action="Index"
+                                                                        asp-route-category="@CategoryIdSSD"
+                                                            asp-route-page="1"
+                                                            asp-route-configurator="1"
+                                                >
+                                                    <img class="image-item" src="@Model.SSD.ImageUrl" alt="plus">
+                                    <div class="decription">
+                                                        <h2 class="configurator-item__name"> @Model.SSD.Name</h2>
+                                        <h3 class="description-item">
+                                @(s = $"{Model.SSD.ParamValueOne}")
+                                        </h3>
+                                    </div>
+
+                                </a>
+
+                                                <p class="price-item"> Цена: @Model.SSD.Price ₽</p>                
+                            </li>
+
+            }
+            else
+            {
+
+                                <li class="configurator-item flex">
+                                                <a class="configurator-item__button flex"
+                                                asp-controller="Items"
+                                                asp-action="Index"
+                                                                    asp-route-category="@CategoryIdSSD"
+                                                        asp-route-page="1"
+                                                            asp-route-configurator="1"
+                                                >
+                                                    <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                                        <div class="decription">
+                                                            <h2 class="configurator-item__name"> SSD</h2>
+                                        </div>
+
+                                    </a>
+
+                                </li>
+            }
+
+            @if (Model.Powerblock != null)
+            {
+                {
+                    allId += $"&equipId[{i}]={Model.Powerblock.Id}";
+                    i++;
+                    allPrice += Model.Powerblock.Price;
+                }
+                        <li class="configurator-item flex">
+                                        <a class="configurator-item__button flex"
+                                                asp-controller="Items"
+                                                asp-action="Index"
+                                                                asp-route-category="@CategoryIdPowerblock"
+                                                        asp-route-page="1"
+                                                        asp-route-configurator="1"
+                                                        asp-route-videocardPin="@PowerblockVideocardPin"
+                                                        asp-route-processorPin="@PowerblockProcessorPin"
+                                            >
+                                            <img class="image-item" src="@Model.Powerblock.ImageUrl" alt="plus">
+                                <div class="decription">
+                                                <h2 class="configurator-item__name"> @Model.Powerblock.Name</h2>
+                                    <h3 class="description-item">
+                                @(s = $"{Model.Powerblock.Two} Pin, {Model.Powerblock.One} Pin")
+                                    </h3>
+                                </div>
+
+                            </a>
+
+                                        <p class="price-item"> Цена: @Model.Powerblock.Price ₽</p>                
+                        </li>
+
+            }
+            else
+            {
+
+                            <li class="configurator-item flex">
+                                            <a class="configurator-item__button flex"
+                                                    asp-controller="Items"
+                                                    asp-action="Index"
+                                                    asp-route-category="@CategoryIdPowerblock"
+                                                            asp-route-page="1"
+                                                            asp-route-configurator="1"
+                                                            asp-route-videocardPin="@PowerblockVideocardPin"
+                                                            asp-route-processorPin="@PowerblockProcessorPin"
+                                                                asp-route-power="@allPower"
+                                                    >
+                                                    <img class="image-item" src="~/lib/images/plus.png" alt="plus">
+                                    <div class="decription">
+                                                    <h2 class="configurator-item__name"> Powerblock</h2>
+                                    </div>
+
+                                </a>
+
+                            </li>
+            }
+
+            <h2 class="power">
+                Потребляемая мощность сборки: @allPower W 
+            </h2>
+
+            <p class="sum-price"> Общая стоимость: @allPrice ₽</p>
+        </ul>
+
+        <a class="button-add-to-basket"
+        href="~/Configurator/AddToBasket?userId=@User.FindFirst("Id").Value@allId">
+            <h2 class="add-to-basket"> Добавить в корзину</h2>
+        </a>
+        <a class="button-add-to-basket" asp-action="Clear">
+            <h2 class="add-to-basket"> Сбросить конфигурацию</h2>
+        </a>
+
+
+    </div>
+
+
+  </main>

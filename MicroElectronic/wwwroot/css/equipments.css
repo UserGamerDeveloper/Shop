@@ -1,0 +1,34 @@
+﻿.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    margin-bottom: 10px;
+}
+.equip-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 10px 0 0 10px;
+}
+
+.equip-image-list {
+    max-height: 120px;
+    /*max-width: 140px;*/
+}
+
+main {
+    height: 100%;
+}
+
+.container-bottom {
+    position: absolute;
+    bottom: 100px;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.full-descr {
+    height: 300px;
+}

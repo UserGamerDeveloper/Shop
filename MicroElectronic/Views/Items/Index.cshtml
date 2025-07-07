@@ -1,0 +1,115 @@
+﻿@using MicroElectronic.Domain.Enum;
+@model MicroElectronic.Domain.ViewModels.Pagination.IndexViewModel
+@{
+    ViewData["Title"] = "Оборудование";
+    var configurator = (int?)ViewData["Configurator"];
+    var allFilter = "";
+    if (configurator != null)
+    {
+        allFilter += $"socket={ViewBag.socket}&memory={ViewBag.memory}&processorPin={ViewBag.processorPin}&videocardPin={ViewBag.videocardPin}&power={ViewBag.power}";
+    }
+}
+<head>
+    <link rel="stylesheet" href="~/css/equipments.css" asp-append-version="true" />
+</head>
+<div class="container main-container">
+    <h1 class="display-5 mt-3 fs-1 mb-2"><b>Список товаров</b></h1>
+    <h1 class="display-5 mt-3 fs-3 mb-4"><b> Категория: @ViewData["CategoryTitle"]</b></h1>
+    @if (Model.Equipments.Count() == 0)
+    {
+        <div class="container">
+            <div class="alert alert-warning" role="alert">
+                Товаров нет
+                <a asp-action="Index" asp-controller="Category" class="alert-link">Перейти в каталог</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        @foreach (var equipment in @Model.Equipments)
+        {
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2 equip-image text-center d-none d-sm-none d-md-none d-lg-flex">
+                                <img class="img-fluid equip-image-list" src="@equipment.ImageUrl" />
+                            </div>
+                            <div class="col-10 text-start">
+                                <div class="row">
+                                    <div class="card-title"><b>@equipment.Name</b></div>
+                                </div>
+                                <div class="row">
+                                    <p>@equipment.Description</p>
+                                </div>
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
+                                    <div class="col align-middle mb-2 mb-sm-2 mb-md-0 mb-lg-0">
+                                        <span class="fs-4">&#8381 @equipment.Price</span>
+                                    </div>
+                                    <div class="col text-start text-sm-start text-md-end text-lg-end">
+                                        @if (configurator == 1)
+                                        {
+                                            var categoryId = (int?)ViewData["CategoryId"];
+
+                                            <a role="button" class="btn btn-outline-dark mb-2" 
+                                            href="~/Configurator/AddItem?idItem=@equipment.Id&idCategory=@categoryId">Выбрать</a>
+                                        }
+                                        else
+                                        {
+                                            <a role="button" class="btn btn-outline-dark me-2 mb-2" data-bs-toggle="tooltip" 
+                                            data-bs-placement="top" data-bs-title="В корзину" 
+                                            onclick="addToApp({'equipId':@equipment.Id,'userId':@User.FindFirst("Id").Value})"
+                                            >В корзину </a>
+                                        }
+                                        <a role="button" class="btn btn-outline-dark mb-2"
+                                        asp-controller="Item"
+                                        asp-action="index"
+                                        asp-route-id="@equipment.Id"
+                                        asp-route-configurator="@configurator">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        }
+        <div class="container container-bottom">
+            <div class="row">
+                @if (Model.PageViewModel.HasPreviousPage)
+                {
+                    <div class="col text-start">
+                        <a class="btn btn-outline-dark"
+        href="~/Items/Index?page=@(Model.PageViewModel.PageNumber - 1)&category=@ViewData["CategoryId"]&@allFilter">
+                            <i class="bi bi-chevron-left"></i>
+                            Назад
+                        </a>
+                    </div>
+                }
+                @if (Model.PageViewModel.HasNextPage)
+                {
+                    <div class="col text-end">
+                        <a class="btn btn-outline-dark"
+                href="~/Items/Index?page=@(Model.PageViewModel.PageNumber + 1)&category=@ViewData["CategoryId"]&@allFilter">                            Вперед
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    @if ((User.IsInRole("Admin") || User.IsInRole("Moderator")) && configurator == 0)
+    {
+        <div class="container overflow-hidden text-center mt-5">
+            <!-- <a class="btn btn-warning p-3 btnround" asp-controller="Items" asp-action="EditMode">Редактировать</a> -->
+            <a class="btn btn-warning p-3 btnround"
+            asp-controller="Items"
+            asp-action="EditMode"
+            asp-route-page="@(Model.PageViewModel.PageNumber)"
+            asp-route-category="@ViewData["CategoryId"]">Редактировать</a>
+        </div>
+    }
+
+</div>
+
+<script src="~/js/addToApplication.js" asp-append-version="true"></script>

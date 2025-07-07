@@ -1,0 +1,118 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+.button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+}
+
+p, body{
+    margin: 0;
+}
+
+
+.container-characteristics {
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 1080px;
+    padding: 20px;
+
+    border: 1px solid black;
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+.name-characteristics {
+    margin-bottom: 40px;
+}
+
+.panel-characteristics {
+    justify-content: center;
+}
+
+
+
+.name-right-blok {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-characteristics {
+    min-height: 400px;
+    max-width: 400px;
+}
+
+
+.right-blok-characteristics {
+    max-width: 50%;
+    max-height:100%;
+    position: relative;
+}
+
+.descr-characteristics {
+    resize: none;
+    font-size: 20px;
+    background-color: inherit;
+    border: 0;
+    min-height: 200px;
+    width: 576px;
+}
+
+.price-blok {
+    position: absolute;
+    min-width: 100%;
+    bottom: 0;
+
+    justify-content: space-between;
+}
+
+.price-card {
+    width: inherit;
+    margin-bottom: 20px;
+    justify-content: space-between;
+
+    font-size: 30px;
+}
+
+.btn-characteristics {
+    float: right;
+    padding: 15px 20px 15px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    font-size: 20px;
+    transition: background-color 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out;
+}
+
+.btn-characteristics:hover {
+    background-color: gray;
+}
+.btn-characteristics:active {
+    background-color: black;
+    color: white;
+}

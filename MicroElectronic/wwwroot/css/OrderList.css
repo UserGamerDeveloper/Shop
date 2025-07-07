@@ -1,0 +1,135 @@
+﻿
+.name-window {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.id-order {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.window-cancel {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.textarea {
+    margin-bottom: 20px;
+    width: 700px;
+    height: 400px;
+    resize: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.button-cancel {
+    padding: 15px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1920px;
+
+}
+
+.flex {
+    display: flex;
+  }
+
+.order-name {
+    text-align: center;
+}
+
+.order-list {
+    padding: 0;
+    list-style: none;
+
+}
+
+.col-username {
+    margin: 0;
+    margin-right: 460px;
+    border-bottom: 1px solid black;
+}
+
+.col-orders {
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+
+.order-panel {
+    max-width: 1300px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+.order-item {
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.order-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.username {
+
+    margin: 0;
+    text-align: center;
+
+}
+
+.accept-button, .cancel-button {
+    padding: 0;
+    padding: 20px;
+    align-items: center;
+
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.accept-button {
+    margin-right: 20px;
+}
+
+.accept-button {
+    background-color: green;
+}
+.cancel-button {
+    background-color: red;
+}
+
+
+.accept-button:hover {
+    background-color: #32CD32;
+}
+
+.accept-button:active {
+    background-color: #006400;
+}
+
+.accept-button:focus {
+    background-color: #32CD32;
+}
+
+.cancel-button:hover {
+    background-color: #DC143C;
+}
+.cancel-button:active {
+    background-color: #8B0000;
+}
+
+.cancel-button:focus {
+    background-color: #DC143C;
+}

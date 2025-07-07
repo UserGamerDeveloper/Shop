@@ -1,0 +1,191 @@
+﻿@model MicroElectronic.Domain.ViewModels.User.UserViewModel
+@{
+    ViewData["Title"] = "Аккаунт";
+    int number = 1;
+}
+<!-- @*
+<head>
+    <link rel="stylesheet" href="~/css/mainpage.css" asp-append-version="true" />
+</head>
+<div class="container">
+    <h1 class="display-6 mt-3 mb-4"><b>Информация об аккаунте</b></h1>
+    <div class="row row-cols-1 row-cols-md-1 row-cols-sm-1 row-cols-lg-2">
+        <div class="col">
+            <div class="card text-start">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Общая информация</h3> 
+                </div>
+                <div class="container mb-3">
+                    <div class="row px-3">
+                        <div class="col-6">
+                            <p class="fs-5"><b>Имя:</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-5">@Model.Name</p>
+                        </div>
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6">
+                            <p class="fs-5"><b>Фамилия:</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-5">@Model.Surname</p>
+                        </div>
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6">
+                            <p class="fs-5"><b>Должность:</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-5">@Model.Position</p>
+                        </div>
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6">
+                            <p class="fs-5"><b>Роль:</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-5">@Model.Role</p>
+                        </div>
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6">
+                            <p class="fs-5"><b>Логин:</b></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fs-5">@Model.Login</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-start">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold">Список последних заказов</h3>
+                </div>
+                <div class="container mt-3">
+                    <div id="list-container">
+                        <div class="row ms-2 align-items-center fs-5 fw-bold">
+                            <div class="col-1">№</div>
+                            <div class="col-5">Идент. заказа</div>
+                            <div class="col-3">Время создания</div>
+                            <div class="col-3">Статус</div>
+                        </div>
+                        <div class="list-group mb-3">
+                        @foreach (var order in ViewBag.Orders)
+                        {
+                            <a role="button" class="list-group-item list-group-item-action" onclick="showOrderDetails({url: '/Account/ShowOrderDetails', orderId: '@order.OrderId'})">
+                                <div class="row ms-2 align-items-center fs-5">
+                                    <div class="col-1">@(number++)</div>
+                                    <div class="col-5">@order.OrderId</div>
+                                    <div class="col-3">@order.DateCreated</div>
+                                    @if(order.Status == "В ожидании")
+                                    {
+                                       <div class="col-3 text-warning">@order.Status</div>
+                                    }
+                                    else if (order.Status == "Отменен")
+                                    {
+                                        <div class="col-3 text-danger">@order.Status</div>
+                                    }
+                                    else if (order.Status == "Принят")
+                                    {
+                                        <div class="col-3 text-success">@order.Status</div>
+                                    }
+                                    else if (order.Status == "Выполнен")
+                                    {
+                                        <div class="col-3 text-success">@order.Status</div>
+                                    }
+                                </div>
+                            </a>
+                        }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+*@ -->
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/myAccount.css">
+    <title>Аккаунт</title>
+</head>
+        <div class="information-container">
+            <h1 class="info-name">Информация об аккаунте</h1>
+
+            <div class="information-blok flex">
+                <div class="general-info">
+                    <h2 class="name">Общая информация:</h2>
+                    <div class="descr flex">
+                        <div class="info">
+                            <span>Имя:</span>
+                        </div>
+                        <div>
+                            <span>@Model.Name</span>
+                        </div>
+                    </div>
+                    <div class="descr flex">
+                        <div class="info">
+                            <span>Роль:</span>
+                        </div>
+                        <div>
+                            <span>@Model.Role</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-sheet">
+                    <div class="list-order">
+                        <h2 class="name">Список заказов:</h2>
+
+                        <ul class="nav-list flex">
+                            <li class="nav-item">
+                                <span class="item">№</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="item">Идент. заказа</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="item">Время создания</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="item">Статус</span>
+                            </li>
+                        </ul>
+
+                        <div class="stuff">
+                            <ul class="stuff-list">
+                                @if(ViewBag.Orders != null)
+                                {
+                                    @foreach (var order in ViewBag.Orders)
+                                    {
+                                        <a role="button" onclick="showOrderDetails({url: '/Account/ShowOrderDetails', orderId: '@order.OrderId'})">
+                                            <li class="stuff-item">
+                                                <ul class="descr-stuff flex">
+                                                    <li class="descr-item">
+                                                        <span>@(number++)</span>
+                                                    </li>
+                                                    <li class="descr-item">
+                                                        <span>@order.OrderId</span>
+                                                    </li>
+                                                    <li class="descr-item">
+                                                        <span>@order.DateCreated</span>
+                                                    </li>
+                                                    <li class="descr-item">
+                                                        <span>@order.Status</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </a>
+                                    }
+                                }
+                            </ul>
+                       </div>     
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script src="~/js/showOrderDetails.js" asp-append-version="true"></script>

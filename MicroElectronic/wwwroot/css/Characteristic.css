@@ -1,0 +1,93 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1920px;
+    margin: 0;
+}
+.flex {
+    display: flex;
+}
+.container-characteristic {
+    justify-content: center;
+}
+
+.name-panel-text {
+    margin-bottom: 20px;
+}
+
+.image-characteristic {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+.characteristic-cont {
+    max-height: 500px;
+    max-width: 1000px;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+    
+}
+
+.parametrs span{
+    font-size: 20px;
+    line-height: 30px;
+
+}
+
+.parametrs span:last-child{
+    float: right;
+    margin-left: 20px;
+}
+
+.parametrs:nth-child(2n) {
+    background: #D3D3D3;  
+}
+
+.characteristic-panel {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+h1 , h2 {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+
+.characteristic-window {
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.price-panel {
+    /* float: right; */
+    padding:0 20px 0 240px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.button-basket {
+    border: none;
+    background: none;
+    float: right;
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.button-basket:hover {
+    background-color: #D3D3D3;
+}
+
+.button-basket:active {
+    background-color: gray;
+}

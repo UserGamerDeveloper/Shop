@@ -1,0 +1,24 @@
+﻿@model MicroElectronic.Domain.ViewModels.Category.CategoryViewModel
+
+<form asp-action="Edit" enctype="multipart/form-data" id="formEditCategory" method="post">
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="ImageUrl" />
+    <div class="mb-3">
+        <label asp-for="@Model.Name" class="col-form-label">Название категории</label>
+        <input asp-for="Name" type="text" class="form-control"/>
+    </div>
+    <div class="mb-5">
+        <label for="formFile" class="form-label">Изображение</label>
+        <input class="form-control" type="file" id="formFile" name="file">
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-3 justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button> 
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3 justify-content-center">
+            <input type="submit" class="btn btn-primary" value="Принять"/>
+        </div>
+    </div>
+</form>

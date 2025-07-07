@@ -1,0 +1,289 @@
+﻿@using MicroElectronic.Domain.Enum;
+@model MicroElectronic.Domain.ViewModels.Equipment.EquipmentViewModel
+@{
+    var pin = "";
+}
+    <head>
+        <meta charset="UTF-8">
+        @*<link rel="stylesheet" href="~/css/item_index.css">*@
+        <link rel="stylesheet" href="~/css/Characteristic.css">
+        <title>Характеристики товара</title>
+    </head>
+
+        @*<div class="container-characteristics">
+
+            <h1 class="name-characteristics">@Model.Name</h1>
+            <div class="panel-characteristics flex">
+                <div class="left-blok-characteristics">
+                    <img class="image-characteristics" src="@Model.ImageUrl" alt="">
+                </div>
+                    <div class="right-blok-characteristics">
+                        <h2 class="name-right-blok">Характеристики</h2>
+                        <textarea class="descr-characteristics" disabled>@Model.FullDescription</textarea>
+                        <div class="price-blok">
+                            <div class="price-card flex">
+                                <span>Стоимость:</span>
+                                <span>@Model.Price</span>
+                            </div>
+                            <button class="button-reset btn-characteristics" 
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="В корзину" 
+                              onclick="addToApp({'equipId':@Model.Id,'userId':@User.FindFirst("Id").Value})">В корзину</button>
+                        </div>
+                    </div>
+
+                
+            </div>
+        </div>*@
+        <main class="container-characteristic flex">
+
+
+        <div class="characteristic-window ">
+            <h1 class="name-panel-text">
+            @Model.Name
+            </h1>
+
+            <div class="characteristic-cont flex">
+                <img class="image-characteristic " src="@Model.ImageUrl" alt="">
+
+                <div class="scrollbar">
+                    <div class="characteristic-panel">
+
+                        <h2>Общие параметры:</h2>
+                    @switch (Model.CategoryId)
+                    {
+                        case (int)CategoryId.Processor:
+                            <div class="parametrs">
+                                <span>
+                                        Socket
+                                    </span>
+                                    <span>
+                                    @(((Socket)Model.One).ToString())
+                                    </span>
+                                </div>
+                                        <div class="parametrs">
+                                            <span>
+                                            Power
+                                            </span>
+                                            <span>
+                                    @Model.Power
+                                            </span>
+                                        </div>
+                            break;
+                        case (int)CategoryId.Motherboard:
+                                                <div class="parametrs">
+                                            <span>
+                                                Socket
+                                            </span>
+                                            <span>
+                                    @(((Socket)Model.One).ToString())
+                                            </span>
+                                        </div>
+                                                <div class="parametrs">
+                                            <span>
+                                                        TypeMemory
+                                            </span>
+                                            <span>
+                                    @(((TypeMemory)Model.Two).ToString())
+                                            </span>
+                                        </div>
+                                                <div class="parametrs">
+                                            <span>
+                                                        PinProcessor
+                                            </span>
+                                            <span>
+                                            Model.Three
+                                            </span>
+                                        </div>
+                            break;
+                        case (int)CategoryId.Videocard:
+                                                        <div class="parametrs">
+                                            <span>
+                                                        PinVideo
+                                            </span>
+                                            <span>
+                                                @if (Model.One > 0)
+                                            {
+                                                pin = Model.One.ToString();
+                                            }
+                                            else
+                                    {
+                                        pin = "no";
+                                    }
+                                            @pin
+                                            </span>
+                                        </div>
+                                                <div class="parametrs">
+                                            <span>
+                                            Power
+                                            </span>
+                                            <span>
+                                    @Model.Power
+                                            </span>
+                                        </div>
+                            break;
+                        case (int)CategoryId.Memory:
+                                <div class="parametrs">
+                                            <span>
+                                                        TypeMemory
+                                            </span>
+                                            <span>
+                                    @(((TypeMemory)Model.One).ToString())
+                                            </span>
+                                        </div>
+                            break;
+                        case (int)CategoryId.Powerblock:
+                                <div class="parametrs">
+                                            <span>
+                                                        PinVideo
+                                            </span>
+                                            <span>
+                                            Model.One
+                                            </span>
+                                        </div>
+                                                <div class="parametrs">
+                                            <span>
+                                                        PinProcessor
+                                            </span>
+                                            <span>
+                                            Model.Two
+                                            </span>
+                                        </div>
+                                        <div class="parametrs">
+                                    <span>
+                                    Power
+                                    </span>
+                                    <span>
+                                    @Model.Power
+                                    </span>
+                                </div>
+                            break;
+                        default:
+                            break;
+                    }
+                        <div class="parametrs">
+                            <span>
+                                @Model.ParamNameOne
+                            </span>
+                            <span>
+                            @Model.ParamValueOne
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameTwo
+                            </span>
+                            <span>
+                            @Model.ParamValueTwo
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameThree
+                            </span>
+                            <span>
+                            @Model.ParamValueThree
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameFour
+                            </span>
+                            <span>
+                            @Model.ParamValueFour
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameFive
+                            </span>
+                            <span>
+                            @Model.ParamValueFive
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameSix
+                            </span>
+                            <span>
+                            @Model.ParamValueSix
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameSeven
+                            </span>
+                            <span>
+                            @Model.ParamValueSeven
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameEight
+                            </span>
+                            <span>
+                            @Model.ParamValueEight
+                            </span>
+                        </div>
+                         <div class="parametrs">
+                            <span>
+                            @Model.ParamNameNine
+                            </span>
+                            <span>
+                            @Model.ParamValueNine
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameTen
+                            </span>
+                            <span>
+                            @Model.ParamValueTen
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameEleven
+                            </span>
+                            <span>
+                            @Model.ParamValueEleven
+                            </span>
+                        </div>
+                        <div class="parametrs">
+                            <span>
+                            @Model.ParamNameTwelve
+                            </span>
+                            <span>
+                            @Model.ParamValueTwelve
+                            </span>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-panel flex">
+                <h2 class="value">Стоимость:</h2>
+                <h2 class="price">@Model.Price</h2>
+            </div>
+        @if ((int?)ViewData["Configurator"] == 1)
+        {
+            <a class="button-basket" href="~/Configurator/AddItem?idItem=@Model.Id&idCategory=@Model.CategoryId">
+                    Выбрать
+                </a>
+        }
+        else
+        {
+            <a class="button-basket" onclick="addToApp({'equipId':@Model.Id,'userId':@User.FindFirst("Id").Value})">
+                    Добавить в корзину
+                </a>
+        }
+        </div>
+
+
+
+
+
+
+    </main>
+
+
+<script src="~/js/addToApplication.js" asp-append-version="true"></script>

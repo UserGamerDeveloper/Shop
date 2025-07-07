@@ -1,0 +1,333 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+.button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+}
+
+p, body{
+    margin: 0;
+}
+
+.but-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 700px;
+    /* margin: 0 auto;
+    margin-top: 200px; */
+}
+
+.delete-panel {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name-panel {
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.descr {
+    font-size: 30px;
+    color: red;
+    margin-bottom: 20px;
+
+
+}
+
+.details-user {
+    font-size: 25px;
+    padding-left: 35%;
+    margin-bottom: 30px;
+}
+
+.name {
+    margin-bottom: 20px;
+}
+
+.warning-panel {
+    background-color: orange;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.warning-massage {
+    font-size: 20px;
+}
+
+.button {
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 20px 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+
+.close {
+    color: black;
+    background-color: gray;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+.close:hover {
+    color: white;
+    background-color: lightgrey;
+}
+.close:active {
+    color: white;
+    background-color: black;
+}
+
+.delete {
+    color: black;
+    background-color: red;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.delete:hover {
+    background-color: lightcoral;
+}
+
+.delete:active {
+    color: white;
+    background-color: #570202;
+}
+
+
+/* index */
+
+
+.container-admin {
+   margin: 0 auto;
+   max-width: 1200px;
+   margin-top: 100px;
+}
+
+.container-descr {
+    padding: 20px   ;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.panel-name {
+    margin-bottom: 30px;
+    font-size: 40px;
+    max-width: 430px;
+    border-bottom: 1px solid black;
+}
+
+.user-list {
+    margin-bottom: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    align-items: center;
+}
+
+.user-item {
+    font-size: 30px;
+}
+
+.user-item:not(:first-child) {
+    min-width: 180px;
+}
+
+.dropdown-but {
+    font-size: 30px;
+}
+
+.drop-but {
+    font-size: 30px;
+    padding: 10px 15px 10px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 215px;
+    background-color: #2c2c316a;
+    margin-bottom: 10px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.dropdown-content .war-but:hover {
+    background-color: red;
+}
+
+.dropdown-content .war-but:active{
+    background-color: darkred;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(128, 128, 128);
+}
+
+.dropdown-content a:active {
+    background-color: rgb(70, 69, 69);
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.war-but:hover {
+    background-color: red;
+}
+
+
+/* UpdateUser */
+
+
+.container-update{
+    /* margin: 0 auto;
+    margin-top: 200px; */
+    max-width: 700px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    background-color: white;
+}
+
+.name-panelUpdate {
+    padding: 20px;
+
+    font-size: 30px;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+}
+
+.descr-update {
+    padding: 20px;
+}
+
+.name-info {
+    margin-bottom: 50px;
+
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.name-field {
+    margin-bottom: 5px;
+    margin-right: 200px;
+    font-size: 20px;
+}
+
+.option-info {
+    margin-bottom: 20px;
+}
+.option-info .drop-update{
+    margin-bottom: 100px;
+}
+
+.update-name {
+    outline: 0;
+    border: 0;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+
+.drop-update {
+    border: 0;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    min-width: 247px;
+}
+
+.options {
+    text-align: center;
+}
+
+.btns-update {
+    justify-content: space-around;
+}
+
+.btn-update {
+    padding: 10px 15px 10px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+    
+}
+
+.close-btn {
+    background-color: gray;
+}
+.close-btn:hover {
+    background-color: darkgray;
+}
+.close-btn:active {
+    background-color: black;
+    color: white;
+}
+
+.accept-btn {
+    background-color: green;
+
+}
+
+.accept-btn:hover {
+    background-color: lightgreen;
+}
+.accept-btn:active {
+    background-color: darkgreen;
+    color: white;
+}

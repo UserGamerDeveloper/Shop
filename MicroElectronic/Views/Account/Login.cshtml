@@ -1,0 +1,89 @@
+﻿@model MicroElectronic.Domain.ViewModels.Account.LoginViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Авторизация";
+}
+<!--
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container main">
+            <div class="row">
+                <div class="col-md-6 side-image">
+                    <div class="text">
+                        <p><b>MicroElec</b></p>
+                        <p>лучшие в своем деле</p>
+                    </div>
+                </div>
+                <div class="col-md-6 right">
+                    <div class="input-box">
+                        <header>Авторизация</header>
+                        <form method="post">
+                            <div asp-validation-summary="All" class="text-danger text-center"></div>
+                            <div class="input-field">
+                                <input asp-for="Login" type="text" class="input" id="login" required autocomplete="off">
+                                <label for="login">Логин</label>
+                            </div>
+                            <div class="input-field">
+                                <input asp-for="Password" type="password" class="input" id="password" required>
+                                <label for="password">Пароль</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="submit" class="submit" value="Войти">
+                            </div>
+                        </form>
+                        <div class="signup">
+                            <span>Еще нет аккаунта? <a asp-action="Register" asp-controller="Account">Зарегистрироваться</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/login.css">
+    <title>Авторизация</title>
+  </head>
+    <body>
+        <div class="login-container">
+            <div class="login-panel flex">
+                <div class="left-blok">
+                    <h1 class="name-site">Магазин по продаже электроники</h1>
+                    <h2 class="description-site">Здесь найдется все!!!</h2>
+                </div>
+                <div class="right blok"> 
+                    <div class="authorization">
+                        <header class="name-autorisation">Авторизация</header>
+                        <form method="post">
+                            <div asp-validation-summary="All"></div>
+                            <div class="login">
+                                <input placeholder="Login" asp-for="Login" type="text" class="input" id="login" required autocomplete="off">
+                            </div>
+                            <div class="password">
+                                <input placeholder="Password" asp-for="Password" type="password" class="input" id="password" required>
+                            </div>
+                            <div class="but">
+                                <button class="button-reset button">Войти</button>
+                            </div>
+                        </form>
+                        <div class="signup">
+                            <span>Еще нет аккаунта? <a class="sign" asp-action="Register" asp-controller="Account">Зарегистрироваться</a> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

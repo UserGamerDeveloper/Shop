@@ -1,0 +1,125 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+.button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 0;
+}
+
+p, body{
+    margin: 0;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 700px;
+    /* margin: 0 auto;
+    margin-top: 200px; */
+}
+
+.delete-panel {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name-panel {
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.descr {
+    font-size: 30px;
+    color: red;
+    margin-bottom: 20px;
+
+
+}
+
+.details-user {
+    font-size: 25px;
+    padding-left: 35%;
+    margin-bottom: 30px;
+}
+
+.name {
+    margin-bottom: 20px;
+}
+
+.warning-panel {
+    background-color: orange;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.warning-massage {
+    font-size: 20px;
+}
+
+.button {
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 20px 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+
+.close {
+    color: black;
+    background-color: gray;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+.close:hover {
+    color: white;
+    background-color: lightgrey;
+}
+.close:active {
+    color: white;
+    background-color: black;
+}
+
+.delete {
+    color: black;
+    background-color: red;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.delete:hover {
+    background-color: lightcoral;
+}
+
+.delete:active {
+    color: white;
+    background-color: #570202;
+}

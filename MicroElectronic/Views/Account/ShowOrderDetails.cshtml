@@ -1,0 +1,103 @@
+﻿@model MicroElectronic.Domain.ViewModels.Order.OrderDetailsViewModel
+@{
+}
+
+@*<!--
+<form asp-action="ShowOrderDetails" enctype="multipart/form-data" id="formUpdateUser" method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <div class="mb-3">
+        <h5>Идентификатор заявки - @Model.OrderId</h5>
+    </div>
+    <div class="mb-3">
+        <h5>Автор заявки:</h5>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label">Имя: @User.FindFirst("UserName").Value</label>
+    </div>
+    <div class="mb-3">
+        <label class="col-form-label">Фамилия: @User.FindFirst("UserSurname").Value</label>
+    </div>
+    <div class="mb-3">
+        <h5 class="mb-3">Детали заявки:</h5>
+    </div>
+    <div class="mb-5">
+        <ol>
+        @foreach (var item in Model.OrderItems)
+        {
+            <li>
+                <div class="row">
+                    <div class="col">
+                        @item.Name
+                    </div>
+                    <div class="col">
+                        @item.Quantity шт.
+                    </div>
+                    <div class="col">
+                        &#8381 @item.Price
+                    </div>
+                </div>
+            </li>
+        }
+        </ol>
+    </div>
+
+
+    <div class="row">
+        <div class="col text-start">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+    </div>
+</form>
+    -->*@
+
+
+                <form asp-action="ShowOrderDetails" enctype="multipart/form-data" id="formUpdateUser" method="post">
+                    <input type="hidden" asp-for="OrderId" />             
+                    <div class="blok-decr flex">
+                        <div class="left-blok">
+                            <div class="list-info">
+                                <div class="id-order">
+                                    <span class="descr-order">Идентификатор заказа:</span>
+                                </div>
+                                <!--
+                                <div class="autor">
+                                    <div class="name-ator">
+                                        <span class="descr-order">Имя:</span>
+                                    </div>
+                                </div>
+                                    -->
+                            </div>
+                        </div>
+    
+                        <div class="right-blok">
+                            <div class="id-order">
+                                <span class="descr-order">@Model.OrderId</span>
+                            </div>
+                            <!--
+                            <div class="autor">
+                                <span class="descr-order">@User.FindFirst("UserName").Value</span>
+                            </div>
+                        -->
+                            <span></span>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="details-order">
+                        <span class="descr-order descr-details">Детали заказа:</span>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <ul class="product flex">
+                                <li>@item.Name</li>
+                                <li>@item.Quantity шт.</li>
+                                <li>@(item.Price * item.Quantity)</li>
+                            </ul>
+                        }
+                    </div>
+        
+                    <div class="button">
+                        <button type="button" class="but-order but-reset"  data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+
+                </form>
+

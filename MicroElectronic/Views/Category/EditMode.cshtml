@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MicroElectronic.Domain.ViewModels.Category.CategoryViewModel>
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/edit_catalog.css" asp-append-version="true" />
+</head>
+<div class="container">
+    <h1 class="display-5 mt-3"><b>Каталог <span class="text-warning">(Режим редактирования)</span></b></h1>
+    <h2 class="display-6 mt-3 mb-4">Категории товаров</h2>
+    <div class="container overflow-hidden text-center">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 row-cols-lg-4 g-4 mb-3">
+            @foreach (var category in @Model)
+            {
+                <div class="col">
+                    <a class="text-black">
+                        <div class="card h-100 pt-3">
+                            <img src="@category.ImageUrl" class="card-img-top">
+                            <div class="card-body mb-auto">
+                                <h5 class="card-title fs-6">@category.Name</h5>             
+                            </div>
+                            <a role="button" class="btn btn-outline-warning mb-2 mb-sm-2 mb-md-2 mb-lg-2 mb-xl-2 mx-3" onclick="openEditModal({id:@category.Id, url: '/Category/Edit'})" data-toggle="ajax-modal" data-target="Modal">Изменить</a>
+                            <a role="button" class="btn btn-outline-danger mb-2 mb-sm-2 mb-md-2 mb-lg-2 mb-xl-2 mx-3" onclick="openDeleteModal({id:@category.Id, url: '/Category/Delete'})" data-toggle="ajax-modal" data-target="Modal">Удалить</a>
+                        </div>
+                    </a>
+                </div>
+            }
+            <div class="col">
+                <a class="text-black" role="button" onclick="openEditModal({id: 0, url: '/Category/Edit'})">
+                    <div class="card add h-100 p-3">
+                        <img src="~/lib/images/plus.png" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Добавить категорию</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    {
+        <div class="container overflow-hidden text-center mt-5">
+            <a class="btn btn-success p-3 btnround" asp-controller="Category" asp-action="Index">End</a>
+        </div>
+    }
+</div>
+
+<script src="~/js/editCategory.js" asp-append-version="true"></script>
+<script src="~/js/deleteCategory.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>

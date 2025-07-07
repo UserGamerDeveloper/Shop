@@ -1,0 +1,124 @@
+﻿@model MicroElectronic.Domain.ViewModels.Pagination.IndexUsersViewModel
+@{
+    ViewData["Title"] = "Панель администратора";
+}
+
+
+@* <!--
+<head>
+    <link rel="stylesheet" href="~/css/DeleteUser.css" asp-append-version="true" />
+</head>
+<div class="container mt-5">
+    <div class="card text-start">
+        <div class="card-body">
+            <h3 class="card-title fw-bold">Список пользователей</h3>
+        </div>
+        <div class="container mt-3">
+            <div id="list-container">
+                <ol class="fs-5">
+                    @foreach(var user in Model.Users)
+                    {
+                        <li class="mb-3">
+                            <div class="row ms-2 align-items-center">
+                                <div class="col">@user.Name</div>
+                                <div class="col">@user.Surname</div>
+                                <div class="col">@user.Position</div>
+                                <div class="col">@user.Role</div>
+                                <div class="col">
+                                    <div class="dropdown">
+                                        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Действия
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a role="button" class="dropdown-item" onclick="updateUser({url: '/AdminPanel/UpdateUser', id: @user.Id})">Редактировать</a></li>
+                                            <li><a role="button" class="dropdown-item dropdown-item-danger" onclick="deleteUser({url: '/AdminPanel/DeleteUser', id: @user.Id})">Удалить</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ol>
+            </div>
+        </div>
+        <div class="container container-bottom mb-2">
+            <div class="row">
+                @if (Model.PageViewModel.HasPreviousPage)
+                {
+                    <div class="col text-start">
+                        <a class="btn btn-outline-dark" asp-action="Index" asp-route-page="@(Model.PageViewModel.PageNumber - 1)">
+                            <i class="bi bi-chevron-left"></i>
+                            Назад
+                        </a>
+                    </div>
+                }
+                @if (Model.PageViewModel.HasNextPage)
+                {
+                    <div class="col text-end">
+                        <a class="btn btn-outline-dark" asp-action="Index" asp-route-page="@(Model.PageViewModel.PageNumber + 1)">
+                            Вперед
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+       -->*@
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="~/css/adminPanel.css">
+        <title>Панель администратора</title>
+    </head>
+
+        <div class="container-admin">
+            <div class="container-descr">
+                <h1 class="panel-name">Список пользователей:</h1>
+                <div class="users">
+                    @foreach(var user in Model.Users)
+                    {
+                    <ul class="user-list flex">
+                        <li class="user-item">@user.Name</li>
+                        <li class="user-item">@user.Role</li>
+                       
+                        <div class="dropdown">
+                            <button class="but-reset drop-but">Действия</button>
+                            <div class="dropdown-content">
+                              <a onclick="updateUser({url: '/AdminPanel/UpdateUser', id: @user.Id})">Редактировать</a>
+                              <a class="war-but" onclick="deleteUser({url: '/AdminPanel/DeleteUser', id: @user.Id})">Удалить</a>
+                            </div>
+                        </div>
+                    </ul>
+                    }                    
+                </div>
+                <div class="container container-bottom mb-2">
+                    <div class="row">
+                    @if (Model.PageViewModel.HasPreviousPage)
+                    {
+                        <div class="col text-start">
+                            <a class="btn btn-outline-dark" asp-action="Index" asp-route-page="@(Model.PageViewModel.PageNumber - 1)">
+                                <i class="bi bi-chevron-left"></i>
+                                Назад
+                            </a>
+                        </div>
+                    }
+                    @if (Model.PageViewModel.HasNextPage)
+                    {
+                        <div class="col text-end">
+                            <a class="btn btn-outline-dark" asp-action="Index" asp-route-page="@(Model.PageViewModel.PageNumber + 1)">
+                                Вперед
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+                    }
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+
+<script src="~/js/updateUser.js" asp-append-version="true"></script>

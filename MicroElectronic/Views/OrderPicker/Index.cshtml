@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MicroElectronic.Domain.ViewModels.Order.OrderDetailsViewModel>
+@{
+    ViewData["Title"] = "Список заказов";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/OrderList.css" asp-append-version="true" />
+</head>
+<main class="container-order-list">
+    <h1 class="order-name">
+        Список заказов
+    </h1>
+    <div class="order-panel">
+        <div class="title-order-list flex">
+            <h2 class="col-username">
+                ID заказов
+            </h2>
+            <h2 class="col-orders">
+                Список заказов
+            </h2>
+        </div>
+
+
+        <ul class="order-list">
+            @foreach (var item in Model)
+            {
+                <li class="order-item flex">
+                            <p class="username"> @item.OrderId</p>
+
+                        <ol class="custom-order-list">
+                        @foreach (var i in item.OrderItems)
+                        {
+                            <li class="custom-order-items">
+                                @i.Name
+                                </li>
+                        }
+                        </ol>
+
+                        <div class="buttons">
+                            <a class="accept-button" href="~/OrderPicker/Accept?orderId=@item.OrderId">
+                                Принять заказ
+                            </a>
+                            <a class="cancel-button" onclick="updateUser({url: '/OrderPicker/CancelOrder', id: '@item.OrderId'})">
+                                Отменить заказ
+                            </a>
+
+                        </div>
+
+                </li>
+            }
+        </ul>
+    </div>
+</main>
+<script src="~/js/updateUser.js" asp-append-version="true"></script>

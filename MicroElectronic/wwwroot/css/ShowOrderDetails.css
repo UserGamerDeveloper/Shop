@@ -1,0 +1,106 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 700px;
+    /* margin: 0 auto;
+    margin-top: 200px; */
+    background-color: white;
+    border-radius: 10px;
+}
+
+.order {
+    padding: 20px;
+
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name-details {
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+
+    font-size: 40px;
+}
+
+.blok-decr {
+    justify-content: space-between;
+}
+
+
+.descr {
+    font-size: 20px;
+    
+}
+.descr-details {
+    border-bottom: 1px solid black;
+}
+
+.id-order {
+    margin-bottom: 20px;
+}
+
+.name-ator {
+    margin-bottom: 40px;
+}
+
+.product {
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.details-order {
+    margin-bottom: 30px;
+}
+
+.but {
+    padding: 15px 30px 15px 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.but:hover {
+    color: white;
+    background-color: black;
+}
+
+.but:active {
+    color: black;
+    background-color: gray;
+}

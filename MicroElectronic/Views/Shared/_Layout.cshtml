@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MicroElec</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <base href="~/" />
+</head>
+<body>
+    @*<!--
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand text-white fs-4 fw-semibold" asp-area="" asp-controller="Home" asp-action="Index">MicroElec</a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler">
+                        <i class="bi bi-list text-white fs-3"></i>
+                    </span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 me-2">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Category" asp-action="Index">Каталог</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Info">Руководство</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav justify-content-end">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item text-white me-3">
+                                <a class="btn btn-outline-light" asp-controller="AdminPanel" asp-action="Index">Админ панель</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="text-white me-3">
+                            @if(User.Identity.IsAuthenticated)
+                            {
+                                <span>
+                                    @User.FindFirst("UserName").Value @User.FindFirst("UserSurname").Value
+                                </span>
+                            }
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="ApplicationItems" asp-action="MyApplicationItems">
+                                <i class="bi bi-file-earmark-text fs-3"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"ex>
+                                    <i class="bi bi-person-circle fs-3"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="MyAccount">Аккаунт</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form method="post" asp-controller="Account" asp-action="Logout">
+                                            <input class="dropdown-item" type="submit" value="Выйти" />
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+        -->*@
+            <div class="container-header"> 
+            <div class="container-headerr" >
+                <header class="header flex">
+                    <div class="main-menu">
+                        <a class="menu" asp-area="" asp-controller="Category" asp-action="Index">Главная</a>
+                    </div>
+                    <div class="right-menu flex">
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <div class="admin-button">
+                            <a class="admin" asp-controller="AdminPanel" asp-action="Index">Админ панель</a>
+                        </div>
+                        }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Сollector"))
+                    {
+                            <div class="admin-button">
+                                <a class="admin" asp-controller="OrderPicker" asp-action="Index">Сборка заказов</a>
+                            </div>
+                    }
+                        <div class="admin-button">
+                            <a class="admin" asp-controller="Configurator" asp-action="Index">Конфигуратор</a>
+                        </div>
+                        <ul class="buttons-header flex">
+@*                        <li class="header-item">
+                            <div class="orders">
+                                <a class="btn-header" asp-controller="OrderList" asp-action="OrderList">Список заказов</a>
+                            </div>
+                        </li>*@
+                            <li class="header-item"> 
+                                <div class="basket">
+                                    <a class="btn-header" asp-controller="ApplicationItems" asp-action="MyApplicationItems">Корзина</a>
+                            </div>
+                            </li>
+                            <li class="header-item"> 
+                                <div class="myAccount">
+                                    <a class="btn-header" asp-controller="Account" asp-action="MyAccount">Аккаунт</a>
+                            </div>
+                            </li>
+                            <li class="header-item">
+                                <form method="post" asp-controller="Account" asp-action="Logout">
+                                    <input class="btn-header" type="submit" value="Выйти" />
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+        </div>
+    <div class="wrapper">
+        <div class="container-fluid my-carousel main">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    @*Modal window*@
+    <div class="modal fade" id="mainModal" tabindex="-1">
+        <div class="modal-dialog container-order" >
+            <div class="modal-content order">
+                <div class="modal-header name-order">
+                    <h1 class="modal-title name-details"></h1>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    @*Modal window*@
+    @*Toast*@
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+            <div class="toast fade align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    @*Toast*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/editCategory.js" asp-append-version="true"></script>
+    <script src="_framework/blazor.server.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

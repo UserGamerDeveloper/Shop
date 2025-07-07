@@ -1,0 +1,15 @@
+﻿@using MicroElectronic.Domain.Enum
+@model MicroElectronic.Domain.ViewModels.Order.OrderDetailsViewModel
+@{
+}
+
+<form asp-action="CancelOrder" enctype="multipart/form-data" class="container-window-cancel flex" method="post">
+    <input type="hidden" asp-for="@Model.OrderId"/>
+    <div class="window-cancel">
+                <h1 class="name-window">ID заказа:</h1>
+                <p class="id-order">@Model.OrderId</p>
+                <textarea asp-for="@Model.Comment" class="textarea" placeholder="Введите причину" required></textarea>
+                <input type="submit" class="button-cancel"> Отменить заказ</input>
+
+            </div>
+</form>

@@ -1,0 +1,27 @@
+﻿/*Catalog*/
+.col a {
+    text-decoration: none;
+}
+
+.card img {
+    min-width: 100px;
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    transition: .5s;
+}
+
+.btnround {
+    border-radius: 10px;
+}
+
+.add:hover {
+    transform: scale(0.95);
+    background-color: #a4a4a4;
+}
+/*Catalog*/

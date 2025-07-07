@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MicroElectronic.Domain.ViewModels.Category.CategoryViewModel>
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/catalog.css" asp-append-version="true" />
+</head>
+<div class="container">
+    <h1 class="display-5 mt-3"><b>Каталог</b></h1>
+    <h2 class="display-6 mt-3 mb-4">Категории товаров</h2>
+    <div class="container overflow-hidden text-center">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 row-cols-lg-4 g-4 mb-5">
+            @foreach (var category in @Model)
+            {
+                <div class="col">
+                    <a role="button" href="~/Items/Index?category=@category.Id" class="text-black">
+                        <div class="card h-100 p-3 catalog">
+                            <img src="@category.ImageUrl" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6">@category.Name</h5>
+                            </div>
+                        </div>
+                     </a>
+                </div>
+            }
+        </div>
+    </div>
+    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    {
+        <div class="container overflow-hidden text-center mt-5">
+            <a class="btn btn-warning p-3 btnround" asp-controller="Category" asp-action="EditMode">Редактировать</a>
+        </div>
+    }
+</div>

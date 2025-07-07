@@ -1,0 +1,36 @@
+﻿@using MicroElectronic.Domain.Enum
+@model MicroElectronic.Domain.ViewModels.User.UserViewModel
+@{
+}
+
+<form asp-action="Updateuser" enctype="multipart/form-data" id="formUpdateUser" method="post">
+    <input type="hidden" asp-for="Id"/>
+    <div class="mb-3">
+        <label asp-for="@Model.Name" class="col-form-label">Имя</label>
+        <input asp-for="@Model.Name" type="text" value="@Model.Name" class="form-control" />
+    </div>
+    <!--
+    <div class="mb-3">
+        <label asp-for="@Model.Surname" class="col-form-label">Фамилия</label>
+        <input asp-for="@Model.Surname" type="text" value="@Model.Surname" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Position" class="col-form-label">Должность</label>
+        <input asp-for="@Model.Position" type="text" value="@Model.Position" class="form-control" />
+    </div>
+        -->
+    <div class="mb-4">
+        <label asp-for="@Model.Role" class="col-form-label">Роль</label>
+        <select asp-for="@Model.Role" asp-items="@Html.GetEnumSelectList<Role>()"> <!--class="form-select" --></select>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col text-start">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+        <div class="col text-end">
+            <input type="submit" class="btn btn-primary" value="Принять" />
+        </div>
+    </div>
+</form>

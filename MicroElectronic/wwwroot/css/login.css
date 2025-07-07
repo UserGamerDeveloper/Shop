@@ -1,0 +1,156 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+.button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.login-container {
+    max-width: 1770px;
+    margin: 0 auto;
+    background-color: white;
+
+}
+
+.login-panel {
+    position: absolute;
+    left: calc(1710px / 2);
+    top: calc(466px / 2);
+
+    padding: 50px;
+    border-radius: 25px;
+
+    background-image: url(../images/login.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.left-blok {
+    padding-right: 50px;
+}
+
+.name-site {
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 400px;
+    color: white;
+}
+
+.description-site {
+    margin: 0;
+    text-align: center;
+    width: 400px;
+    color: white;
+}
+
+.name-autorisation {
+    color: black;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+
+}
+
+.login, .password {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input {
+    border: none;
+    width: 300px;
+    height: 30px;
+    background-color: inherit;
+    
+
+    text-decoration: none;
+    background:  no-repeat 0 100%;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 3px;
+    transition: background-size .5s ease;
+
+}
+.input:active, :hover, :focus {
+    outline: 0;
+
+}
+
+.input:hover{
+    background-size: 100% 3px;
+    border-bottom: none;
+}
+
+.input:active {
+    background-size: 100% 3px;
+    border-bottom: none;
+} 
+
+.input:active::after {
+    opacity: 0;
+}
+
+::placeholder {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+.password {
+    margin-bottom: 20px;
+}
+
+.but {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.button {
+    padding: 10px 100px 10px 100px;   
+    border: 2px solid black;
+    border-radius: 15px;
+    color: black;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    color: white;
+    background-color: black;
+}
+
+
+.signup {
+    text-align: center;
+    color: black;
+}
+.sign {
+    color: blue;
+}
+
+
+

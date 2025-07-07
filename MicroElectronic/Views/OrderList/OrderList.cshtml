@@ -1,0 +1,139 @@
+﻿@model IEnumerable<MicroElectronic.Domain.ViewModels.ApplicationItem.ApplicationItemViewModel>
+@{
+    ViewData["Title"] = "Оформление заявки";
+    int number = 1;
+    decimal summ = 0;
+    foreach(var item in Model)
+    {
+        summ += item.Quantity * item.Price;
+    }
+}
+<head>
+    <link rel="stylesheet" href="~/css/my_app_items.css" asp-append-version="true" />
+</head>
+<div id="appItemsLoad">
+<div class="container" id="appItems">
+    <h1 class="display-5 mt-3 fs-1 mb-5"><b>Список заказов</b></h1>
+@*@if(Model.Count() == 0)
+{
+    <div class="container text-center">
+        <h3 class="mt-3 fs-3">Список товаров для покупки пуст.</h3>
+        <p class="fs-5">Чтобы добавить товар перейдите в <a class="text-primary" asp-controller="Category" asp-action="Index">Каталог</a></p>
+    </div>
+}*@
+@*else
+{*@
+    @*<div class="container">*@
+        @*<div class="row">*@
+           @* <div class="col" id="itemListId">
+                @foreach(var item in @Model)
+                {*@
+                    @*<div class="container">
+                        <div class="card mb-3">
+                            @*<div class="card-body">
+                                <div class="row h-100 align-items-center fs-5">
+                                    <div class="col-1">
+                                        @(number++)
+                                    </div>
+                                    <div class="col-1 text-center">
+                                        <img class="img-fluid equip-image-list" src="@item.ImageUrl" />
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        <b>@item.Name</b>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        @if(item.Quantity <= 1)
+                                        {
+                                            <button class="btn btn-outline-dark me-1" onclick="quantityChange({'itemId':@item.ItemId, 'operation': 'decrement'})" disabled>
+                                                <i class="bi bi-dash-lg"></i>
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-outline-dark me-1" onclick="quantityChange({'itemId':@item.ItemId, 'operation': 'decrement'})">
+                                                <i class="bi bi-dash-lg"></i>
+                                            </button>
+                                        }
+                                        @item.Quantity
+                                        @if(item.Quantity <= 15)
+                                        {
+                                            <button class="btn btn-outline-dark ms-1" onclick="quantityChange({'itemId':@item.ItemId, 'operation': 'increment'})">
+                                                <i class="bi bi-plus-lg"></i>
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-outline-dark ms-1" onclick="quantityChange({'itemId':@item.ItemId, 'operation': 'increment'})" disabled>
+                                                <i class="bi bi-plus-lg"></i>
+                                            </button>
+                                        } 
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        &#8381 @(item.Price * item.Quantity)
+                                    </div>
+                                    <div class="col-1 text-center">
+                                        <a role="button" onclick="removeFromApp({'itemId':@item.ItemId})">
+                                            <i class="bi bi-trash3 fs-3"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>*@
+                   @*     </div>
+                    </div>*@
+                @*}
+                <hr>*@
+                @*<div class="container text-center">
+                    <a role="button" class="btn btn-outline-danger" onclick="clearAppItems({'userId': @User.FindFirst("Id").Value})">Очистить</a>
+                </div>*@
+           @* </div>*@
+
+
+
+
+
+
+            <div class="col-4 result-section">
+                <div class="container_order h-100">
+                    <div class="card h-100">
+                        <div class="card-body result-card">
+                            <h5 class="card-title text-center mb-4">Ваши заказы</h5>
+                            @{number = 1;}
+                            @foreach (var item in Model)
+                            {
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>@(
+                                         number++
+                                         ). @item.Name</p>
+                                    </div>
+                                    <div class="col text-center">
+                                        <p>@item.Quantity шт. &#8381 @item.Price</p>
+                                    </div>
+                                </div>
+                            }
+                            @*<div class="container result-container">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="fs-5">Итого:</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fs-5">&#8381 @summ</p>
+                                    </div>        
+                                </div>        
+                            </div>*@
+                        </div>
+                       @* <div class="card-footer text-center">
+                                <a role="button" class="btn btn-outline-dark" onclick="createOrder({url: '/Order/CreateOrder'})" data-toggle="ajax-modal" data-target="Modal">Оформить заказ</a>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    @*</div>*@
+@*}*@
+</div>
+</div>
+
+<script src="~/js/removeFromApplication.js" asp-append-version="true"></script>
+<script src="~/js/quantityChange.js" asp-append-version="true"></script>
+<script src="~/js/createOrder.js" asp-append-version="true"></script>

@@ -1,0 +1,23 @@
+﻿@model MicroElectronic.Domain.ViewModels.Equipment.EquipmentViewModel
+
+<form asp-action="Delete" enctype="multipart/form-data" id="formDeleteCategory">
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="Name"/>
+    <input type="hidden" asp-for="ImageUrl"/>
+    <div class="mb-3">
+        <span>Вы действительно хотите удалить категорию - <b>"@Model.Name"</b>?</span>
+        <div class="alert alert-warning mt-3" role="alert">
+            Внимание! Данное действие <b>невозможно отменить</b>. Убедитесь в правильности решения.
+        </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-3 justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button> 
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3">
+            <input type="submit" class="btn btn-danger" value="Удалить"/>
+        </div>
+    </div>
+</form>

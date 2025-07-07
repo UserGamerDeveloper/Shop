@@ -1,0 +1,94 @@
+html {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 1920px;
+
+  }
+  
+  .image-item {
+    height: 100px;
+    margin-right: 20px;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .configurator-data {
+    margin-left: 20px;
+  }
+
+  .configurator-item {
+    align-items: center;
+  }
+
+
+  .configurator-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .configurator-item__name {
+    font-size: 30px;
+  }
+
+  .power-block {
+    display: inline-block;
+  }
+
+  .configurator-item__button {
+    padding: 0;
+    padding: 20px;
+    align-items: center;
+    min-width: 1300px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font: inherit;
+    color: inherit;
+    margin-right: 20px;
+  }
+
+  .configurator-item__button:focus {
+    background-color: #DCDCDC;
+  }
+
+  .configurator-item__button:hover {
+    background-color: #DCDCDC;
+    cursor: pointer;
+  }
+  
+  .configurator-item__button:active {
+    background-color: #A9A9A9;
+  }
+
+  .price-item, .sum-price{
+    font-size: 30px;
+  }
+
+  .sum-price {
+    margin-bottom: 20px;
+  }
+
+  .button-add-to-basket {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-right: 20px;
+  }
+  
+  .button-add-to-basket:focus {
+    background-color: #DCDCDC;
+  }
+
+  .button-add-to-basket:hover {
+    background-color: #DCDCDC;
+    cursor: pointer;
+  }
+  
+  .button-add-to-basket:active {
+    background-color: #A9A9A9;
+  }
+
+.decription {
+  text-align: start;
+}

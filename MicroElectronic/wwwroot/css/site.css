@@ -1,0 +1,124 @@
+.container-order {
+    max-width: 700px;
+     margin: 0 auto;
+    margin-top: 200px; 
+    background-color: white;
+    border-radius: 10px;
+}
+
+.order {
+    padding: 20px;
+
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name-details {
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+h1{
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.container-header {
+    background-color: #2c2c38;
+    margin-bottom: 50px;
+}
+
+.container-headerr {
+    max-width: 1770px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    padding: 10px 20px 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+
+    .menu:hover {
+        color: black;
+        background-color: white;
+        border-color: black;
+    }
+
+    .menu:active {
+        background-color: gray;
+    }
+
+.right-menu {
+    align-items: center;
+}
+
+
+.admin {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+}
+
+    .admin:hover {
+        color: black;
+        background-color: white;
+        border-color: black;
+    }
+
+.buttons-header {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.btn-header {
+    color: white;
+    background-color: gray;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    /* margin-top: 2.5px; */
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-header:hover {
+        color: black;
+        background-color: white;
+        }
+
+.btn-header:active {
+        color: white;
+        background-color: black;
+        }
+
+.header-item:not(:last-child) {
+    margin-right: 10px;
+}

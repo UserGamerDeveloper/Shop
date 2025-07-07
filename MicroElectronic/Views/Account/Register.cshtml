@@ -1,0 +1,116 @@
+﻿@model MicroElectronic.Domain.ViewModels.Account.RegisterViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Регистрация";
+}
+<!--
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container main">
+            <div class="card p-3">
+                <div class="card-body p-5">
+                    <div class="input-box">
+                        <header>Регистрация</header>
+                        <form asp-controller="Account" asp-action="Register">
+                            <div class="input-field">               
+                                <input asp-for="Name" type="text" class="input" id="name" required autocomplete="off">
+                                <label for="name">Имя</label>
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                            <div class="input-field">
+                                <input asp-for="Surname" type="text" class="input" id="surname" required autocomplete="off">
+                                <label for="surname">Фамилия</label>
+                                <span asp-validation-for="Surname"></span>
+                            </div>
+                            <div class="input-field">
+                                <input asp-for="Position" type="text" class="input" id="position" required autocomplete="off">
+                                <label for="position">Должность</label>
+                                <span asp-validation-for="Position"></span>
+                            </div>
+                            <div class="input-field">
+                                <input asp-for="Login" type="text" class="input" id="login" required autocomplete="off">
+                                <label for="login">Логин</label>
+                                <span asp-validation-for="Login"></span>
+                            </div>
+                            <div class="input-field">
+                                <input asp-for="Password" type="password" class="input" id="password" required autocomplete="off">
+                                <label for="password">Пароль</label>
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="input-field">   
+                                <input asp-for="PasswordConfirm" type="password" class="input" id="passwordConfirm" required autocomplete="off">
+                                <label for="passwordConfirm">Подтвердите пароль</label>
+                                <span asp-validation-for="PasswordConfirm"></span>
+                            </div>
+                            <div class="input-field">
+                                <input type="submit" class="submit" value="Зарегистрироваться">
+                            </div>
+                        </form>
+                        <div class="signup">
+                            <span>Уже есть аккаунт? <a asp-action="Login" asp-controller="Account">Авторизоваться</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="~/css/register.css">
+        <title>Регистрация</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="register-form">
+                <h1 class="register-name" >Регистрация</h1>
+                <form asp-controller="Account" asp-action="Register">
+                    <ul class="user-data">
+                        <li class="input-field">
+                            <div class="name">                               
+                                        <input placeholder="Имя" asp-for="Name" type="text" class="input" id="name" required autocomplete="off">                         
+                                        <span asp-validation-for="Name"></span>
+                            </div>
+                        </li>
+                        <li class="input-field">
+                            <div>
+                                        <input placeholder="Логин" asp-for="Login" type="text" class="input" id="login" required autocomplete="off">                                
+                                        <span asp-validation-for="Login"></span>
+                            </div>
+                        </li>
+                        <li class="input-field">
+                            <div>
+                                        <input placeholder="Пароль" asp-for="Password" type="password" class="input" id="password" required autocomplete="off">       
+                                        <span asp-validation-for="Password"></span>
+                            </div>
+                        </li>
+                        <li class="input-field">
+                            <div>
+                                        <input placeholder="Подтвердите пароль" asp-for="PasswordConfirm" type="password" class="input" id="passwordConfirm" required autocomplete="off">                                
+                                        <span asp-validation-for="PasswordConfirm"></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn">
+                        <input type="submit" class="button-reset button" value="Зарегистрироваться">
+                    </div>
+                </form>
+                <div class="signup">
+                    <span>Уже есть аккаунт? <a class="autorisation" asp-action="Login" asp-controller="Account">Авторизоваться</a></span>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+html {
+    box-sizing: border-box;
+    background-color: #ececec;
+  }
+
+
+  *,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.flex {
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1770px;
+    margin: 0 auto;
+}
+.register-form {
+    position: absolute;
+    left: calc(1960px / 2 );
+    top: calc(280px / 2);
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px;
+    border-radius: 15px ;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+   text-align: center;
+}
+
+.register-name {
+    margin: 0;
+    margin-bottom: 100px;
+    font-size: 50px;
+    color: black;
+}
+
+
+.input-field:not(:last-child) {
+    margin-bottom: 50px;
+    
+}
+.input-field:last-child {
+    margin-bottom: 100px;
+}
+
+.input {
+    outline: 0;
+    border: 0;
+    font-size: 25px;
+    height: 40px;
+    width: 500px;
+    background-color: inherit;
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.5);
+
+    text-decoration: none;
+    background:  no-repeat 0 100%;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 3px;
+    transition: background-size .5s ease;
+
+}
+input:hover{
+    background-size: 100% 3px;
+}
+
+
+::placeholder {
+    text-align: center;
+    color: gray;
+}
+
+.btn {
+    margin-bottom: 20px;
+}
+
+.button {
+    font-size: 20px;
+    padding: 10px 100px 10px 100px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+.button:hover {
+    color: white;
+    background-color: black;
+}
+
+
+.signup {
+    text-align: center;
+}
+.autorisation {
+    color: blue;
+}
